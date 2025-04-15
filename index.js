@@ -1,41 +1,37 @@
-const add = function(x,y) {
+function add(x,y) {
     return x + y;
-};
+}
 
-const subtract = function(x,y) {
+function subtract(x,y) {
     return x - y;
-};
+}
 
-const sum = function(array) {
+function sum(array) {
     if (array.length === 0) return 0;
     if (array.length === 1) return array[0];
     const sum = array.reduce((total, currentItem) =>{
         return total + currentItem;
     }, 0)
     return sum;
-};
+}
 
-const multiply = function(array) {
-    if (array.length === 1) return array[0];
-    const multiplication = array.reduce((total, currentItem) =>{
-        return total * currentItem;
-    }, 1)
-    return multiplication;
-};
+function multiply (x, y) {
+    return x * y;
+}
 
-const divide = function(a, b) {
+function divide(a, b) {
     return a/b;
 }
 
-const power = function(x,y) {
+function power(x,y) {
     return x**y;
-};
+}
 
-const factorial = function(x) {
+function factorial(x) {
     if (x === 0 || x===1) return 1;
     let result = 1;
     for(let i =1; i<=x; i++){
         result *= i;
     }
     return result;
-};
+}
