@@ -25,13 +25,29 @@
     flex-direction: column;
     border: 3px solid lightgray;
     width: 40vh;
-    height: 40vh;
+    height: 50vh;
 }
 
 #calculator-results{
     border: 1px solid red;
     height: 10vh;
 }
+
+.clear-delete-button{
+    height: 50px;
+    width: 50px;
+}
+#clear-delete{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    border: 1px solid green;
+    height: 10vh;
+    width: 40vh;
+}
+
 #calculator-input{
     border: 1px solid blue;
     height: 30vh;
