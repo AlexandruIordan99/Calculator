@@ -29,13 +29,19 @@
 }
 
 #calculator-results{
-    border: 1px solid red;
     height: 10vh;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border: 1px solid red;
+
 }
 
 .clear-delete-button{
     height: 50px;
     width: 50px;
+    background-color: lightgray;
+    color: saddlebrown;
+
 }
 #clear-delete{
     display: flex;
@@ -51,6 +57,7 @@
 #calculator-input{
     border: 1px solid blue;
     height: 30vh;
+
 }
 
 #calculator-results,
