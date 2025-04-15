@@ -42,6 +42,8 @@ function factorial(x) {
 
 let inputContainer = document.querySelector("#calculator-input");
 
+let columnaArray= [["1","4","7", "="],["2","5","8","0"],["3","6","9","."],["+","-","*","/"]]
+
 function populateContainer(rows, columns) {
     for (let i =0; i < rows; i++) {
         const rowDiv = document.createElement("div");
@@ -50,7 +52,7 @@ function populateContainer(rows, columns) {
         for (let j =0; j < columns; j++){
             const columnDiv = document.createElement("div");
             columnDiv.className = "column";
-            columnDiv.textContent = "I am here";
+            columnDiv.textContent = columnaArray[i][j];
             rowDiv.appendChild(columnDiv);
         }
     }
