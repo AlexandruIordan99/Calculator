@@ -76,3 +76,32 @@
     display: flex;
     width: 40vh;
 }
+
+#calculator-input{
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-around;
+    align-items: stretch;
+    margin: auto;
+}
+
+.row{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
+    height: auto;
+    flex: 1 0 auto;
+    align-content: stretch;
+}
+
+.column {
+    display: flex;
+    border: 1px solid green;
+    height: auto;
+    flex: 1 0 auto;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+
+}

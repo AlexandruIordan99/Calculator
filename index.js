@@ -1,3 +1,5 @@
+//Math functions
+
 function add(x,y) {
     return x + y;
 }
@@ -35,3 +37,23 @@ function factorial(x) {
     }
     return result;
 }
+
+//Creating Number and Operation buttons
+
+let inputContainer = document.querySelector("#calculator-input");
+
+function populateContainer(rows, columns) {
+    for (let i =0; i < rows; i++) {
+        const rowDiv = document.createElement("div");
+        rowDiv.className = "row";
+        inputContainer.appendChild(rowDiv);
+        for (let j =0; j < columns; j++){
+            const columnDiv = document.createElement("div");
+            columnDiv.className = "column";
+            columnDiv.textContent = "I am here";
+            rowDiv.appendChild(columnDiv);
+        }
+    }
+}
+
+populateContainer(4,4);
