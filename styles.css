@@ -28,12 +28,23 @@
     height: 50vh;
 }
 
-#calculator-results{
+#calculator-display
+{
+    display: flex;
     height: 10vh;
     justify-content: flex-end;
     align-items: flex-end;
     border: 1px solid red;
 
+}
+
+#calculator-results{
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    height: 4vh;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .clear-delete-button{
