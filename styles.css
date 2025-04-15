@@ -22,7 +22,23 @@
 
 #calculator-container{
     display: flex;
+    flex-direction: column;
     border: 3px solid lightgray;
-    width: 100px;
-    height: 100px;
+    width: 40vh;
+    height: 40vh;
+}
+
+#calculator-results{
+    border: 1px solid red;
+    height: 10vh;
+}
+#calculator-input{
+    border: 1px solid blue;
+    height: 30vh;
+}
+
+#calculator-results,
+#calculator-input{
+    display: flex;
+    width: 40vh;
 }
