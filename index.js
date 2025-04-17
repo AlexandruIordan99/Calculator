@@ -41,8 +41,14 @@ function factorial(x) {
 //Creating Number and Operation buttons
 
 let inputContainer = document.querySelector("#calculator-input");
+let displayContainer = document.querySelector("#calculator-display");
+let displayText = displayContainer.textContent;
+let clearingContainer = document.querySelector("#clear-delete");
 
-let columnaArray= [["1","4","7", "="],["2","5","8","0"],["3","6","9","."],["+","-","*","/"]]
+let columnArray= [["1","4","7", "="],["2","5","8","0"],["3","6","9","."],["+","-","*","/"]]
+
+let signArray = [".", "+","-","*","/"]
+
 
 function populateContainer(rows, columns) {
     for (let i =0; i < rows; i++) {
@@ -50,12 +56,20 @@ function populateContainer(rows, columns) {
         rowDiv.className = "row";
         inputContainer.appendChild(rowDiv);
         for (let j =0; j < columns; j++){
-            const columnDiv = document.createElement("div");
-            columnDiv.className = "column";
-            columnDiv.textContent = columnaArray[i][j];
-            rowDiv.appendChild(columnDiv);
+            const columnButton = document.createElement("button");
+            columnButton.className = "inputButton";
+            columnButton.textContent = columnArray[i][j];
+            columnButton.addEventListener("click", ()=>{
+                displayContainer.textContent += columnArray[i][j];
+            })
+            rowDiv.appendChild(columnButton);
         }
     }
 }
 
 populateContainer(4,4);
+
+
+function operations(element) {
+
+}

@@ -34,7 +34,7 @@
     height: 10vh;
     justify-content: flex-end;
     align-items: flex-end;
-    border: 1px solid red;
+    border: 1px solid black;
 
 }
 
@@ -60,15 +60,12 @@
     justify-content: center;
     align-items: center;
     gap: 40px;
-    border: 1px solid green;
     height: 10vh;
     width: 40vh;
 }
 
 #calculator-input{
-    border: 1px solid blue;
     height: 30vh;
-
 }
 
 #calculator-results,
@@ -88,15 +85,14 @@
 .row{
     display: flex;
     flex-direction: column;
-    border: 1px solid blue;
     height: auto;
     flex: 1 0 auto;
     align-content: stretch;
+    gap: 1px;
 }
 
-.column {
+.inputButton {
     display: flex;
-    border: 1px solid green;
     height: auto;
     flex: 1 0 auto;
     align-content: center;
