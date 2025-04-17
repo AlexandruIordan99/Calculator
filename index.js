@@ -53,7 +53,11 @@ function populateInputContainer(rows, columns) {
             columnButton.textContent = columnArray[i][j];
 
             columnButton.addEventListener("click", ()=>{
-                if (signArray.includes(columnArray[i][j]) && signArray.includes(resultsContainer.textContent.slice(-1))){
+                if (signArray.includes(columnArray[i][j]) && resultsContainer.textContent.includes(columnArray[i][j])){
+                    operations()
+                    resultsContainer.textContent += columnArray[i][j];
+                }
+                else if (signArray.includes(columnArray[i][j]) && signArray.includes(resultsContainer.textContent.slice(-1))){
                     resultsContainer.textContent = resultsContainer.textContent.slice(0, -1);
                 } else if (columnArray[i][j] !== "="){
                     resultsContainer.textContent += columnArray[i][j];
@@ -76,7 +80,10 @@ function operations() {
     let firstNumber;
     let secondNumber;
     for (let i = 0; i < resultsContainer.textContent.length; i++) {
-        if (signArray.includes(resultsContainer.textContent[i])) {
+        if (resultsContainer.textContent[0] ==="-"){
+            ///
+        }
+        else if (signArray.includes(resultsContainer.textContent[i])) {
             let sign = resultsContainer.textContent[i];
             let signPosition = i;
             firstNumber = parseFloat(resultsContainer.textContent.slice(0, signPosition));
@@ -92,8 +99,5 @@ function operations() {
                 resultsContainer.textContent = divide(firstNumber, secondNumber);
             }
         }
-
-
     }
-
 }
