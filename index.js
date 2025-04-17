@@ -60,6 +60,7 @@ function populateInputContainer(rows, columns) {
                 }
                 else if (signArray.includes(columnArray[i][j]) && signArray.includes(resultsContainer.textContent.slice(-1))){
                     resultsContainer.textContent = resultsContainer.textContent.slice(0, -1);
+                    resultsContainer.textContent += columnArray[i][j];
                 } else if (signArray.includes(columnArray[i][j])){
                     operations()
                     resultsContainer.textContent += columnArray[i][j];
