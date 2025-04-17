@@ -8,15 +8,6 @@ function subtract(x,y) {
     return x - y;
 }
 
-function sum(array) {
-    if (array.length === 0) return 0;
-    if (array.length === 1) return array[0];
-    const sum = array.reduce((total, currentItem) =>{
-        return total + currentItem;
-    }, 0)
-    return sum;
-}
-
 function multiply (x, y) {
     return x * y;
 }
@@ -25,18 +16,6 @@ function divide(a, b) {
     return a/b;
 }
 
-function power(x,y) {
-    return x**y;
-}
-
-function factorial(x) {
-    if (x === 0 || x===1) return 1;
-    let result = 1;
-    for(let i =1; i<=x; i++){
-        result *= i;
-    }
-    return result;
-}
 
 //Creating Number and Operation buttons
 
@@ -76,8 +55,11 @@ function populateInputContainer(rows, columns) {
             columnButton.addEventListener("click", ()=>{
                 if (signArray.includes(columnArray[i][j]) && signArray.includes(resultsContainer.textContent.slice(-1))){
                     resultsContainer.textContent = resultsContainer.textContent.slice(0, -1);
+                } else if (columnArray[i][j] !== "="){
+                    resultsContainer.textContent += columnArray[i][j];
+                } else {
+                    operations()
                 }
-                resultsContainer.textContent += columnArray[i][j];
             })
             rowDiv.appendChild(columnButton);
         }
@@ -89,8 +71,29 @@ populateInputContainer(4,4);
 
 
 
+function operations() {
+    console.log("Operations")
+    let firstNumber;
+    let secondNumber;
+    for (let i = 0; i < resultsContainer.textContent.length; i++) {
+        if (signArray.includes(resultsContainer.textContent[i])) {
+            let sign = resultsContainer.textContent[i];
+            let signPosition = i;
+            firstNumber = parseFloat(resultsContainer.textContent.slice(0, signPosition));
+            secondNumber = parseFloat(resultsContainer.textContent.slice(signPosition + 1, resultsContainer.textContent.length));
+
+            if (sign === "+"){
+                resultsContainer.textContent = add(firstNumber, secondNumber);
+            } else if(sign === "-"){
+                resultsContainer.textContent = subtract(firstNumber, secondNumber);
+            } else if(sign === "*"){
+                resultsContainer.textContent = multiply(firstNumber, secondNumber);
+            } else if(sign === "/"){
+                resultsContainer.textContent = divide(firstNumber, secondNumber);
+            }
+        }
 
 
-function operations(element) {
+    }
 
 }
