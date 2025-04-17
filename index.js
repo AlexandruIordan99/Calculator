@@ -42,12 +42,13 @@ function factorial(x) {
 
 let inputContainer = document.querySelector("#calculator-input");
 let displayContainer = document.querySelector("#calculator-display");
-let displayText = displayContainer.textContent;
+
 let clearingContainer = document.querySelector("#clear-delete");
 
 let columnArray= [["1","4","7", "="],["2","5","8","0"],["3","6","9","."],["+","-","*","/"]]
 
 let signArray = [".", "+","-","*","/"]
+
 
 
 function populateContainer(rows, columns) {
@@ -60,6 +61,7 @@ function populateContainer(rows, columns) {
             columnButton.className = "inputButton";
             columnButton.textContent = columnArray[i][j];
             columnButton.addEventListener("click", ()=>{
+
                 displayContainer.textContent += columnArray[i][j];
             })
             rowDiv.appendChild(columnButton);
@@ -68,6 +70,21 @@ function populateContainer(rows, columns) {
 }
 
 populateContainer(4,4);
+
+
+
+const ACButton = document.getElementById("AC");
+
+ACButton.addEventListener("click", ()=>{
+    displayContainer.textContent = "";
+})
+
+const CButton = document.getElementById("C");
+
+CButton.addEventListener("click", ()=>{
+    displayContainer.textContent.replace(/.$/,  "");
+})
+
 
 
 function operations(element) {
