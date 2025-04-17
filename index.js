@@ -13,6 +13,9 @@ function multiply (x, y) {
 }
 
 function divide(a, b) {
+    if (b ===0){
+        return "You know you can't do that, stop it."
+    }
     return (a/b).toFixed(2);
 }
 
@@ -40,7 +43,6 @@ CButton.addEventListener("click", ()=>{
 let columnArray= [["1","4","7", "="],["2","5","8","0"],["3","6","9","."],["+","-","*","/"]]
 
 let signArray = [".", "+","-","*","/"]
-let numberArray =["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 function populateInputContainer(rows, columns) {
     for (let i =0; i < rows; i++) {
@@ -53,7 +55,10 @@ function populateInputContainer(rows, columns) {
             columnButton.textContent = columnArray[i][j];
 
             columnButton.addEventListener("click", ()=>{
-                if (signArray.includes(columnArray[i][j]) && signArray.includes(resultsContainer.textContent.slice(-1))){
+                if(columnArray[i][j]==="=" && signArray.includes(resultsContainer.textContent.slice(-1))){
+                    resultsContainer.textContent = resultsContainer.textContent;
+                }
+                else if (signArray.includes(columnArray[i][j]) && signArray.includes(resultsContainer.textContent.slice(-1))){
                     resultsContainer.textContent = resultsContainer.textContent.slice(0, -1);
                 } else if (signArray.includes(columnArray[i][j])){
                     operations()
