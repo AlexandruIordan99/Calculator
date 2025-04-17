@@ -41,13 +41,9 @@ function factorial(x) {
 //Creating Number and Operation buttons
 
 let inputContainer = document.querySelector("#calculator-input");
-let displayContainer = document.querySelector("#calculator-display");
 let resultsContainer = document.querySelector("#calculator-results");
-let clearingContainer = document.querySelector("#clear-delete");
 
-let columnArray= [["1","4","7", "="],["2","5","8","0"],["3","6","9","."],["+","-","*","/"]]
 
-let signArray = [".", "+","-","*","/"]
 
 const ACButton = document.getElementById("AC");
 
@@ -61,6 +57,12 @@ CButton.addEventListener("click", ()=>{
     resultsContainer.textContent = resultsContainer.textContent.slice(0, -1);
 })
 
+
+let columnArray= [["1","4","7", "="],["2","5","8","0"],["3","6","9","."],["+","-","*","/"]]
+
+let signArray = [".", "+","-","*","/"]
+let numberArray =["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
 function populateInputContainer(rows, columns) {
     for (let i =0; i < rows; i++) {
         const rowDiv = document.createElement("div");
@@ -70,12 +72,11 @@ function populateInputContainer(rows, columns) {
             const columnButton = document.createElement("button");
             columnButton.className = "inputButton";
             columnButton.textContent = columnArray[i][j];
+
             columnButton.addEventListener("click", ()=>{
-                // if (signArray.includes(columnArray[i][j])){
-                //     if(columnArray[i][j] === displayText.slice(-1)){
-                //         resultsText.splice(-1,1, columnArray[i][j]);
-                //     }
-                // }
+                if (signArray.includes(columnArray[i][j]) && signArray.includes(resultsContainer.textContent.slice(-1))){
+                    resultsContainer.textContent = resultsContainer.textContent.slice(0, -1);
+                }
                 resultsContainer.textContent += columnArray[i][j];
             })
             rowDiv.appendChild(columnButton);
