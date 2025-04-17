@@ -42,16 +42,26 @@ function factorial(x) {
 
 let inputContainer = document.querySelector("#calculator-input");
 let displayContainer = document.querySelector("#calculator-display");
-
+let resultsContainer = document.querySelector("#calculator-results");
 let clearingContainer = document.querySelector("#clear-delete");
 
 let columnArray= [["1","4","7", "="],["2","5","8","0"],["3","6","9","."],["+","-","*","/"]]
 
 let signArray = [".", "+","-","*","/"]
 
+const ACButton = document.getElementById("AC");
 
+ACButton.addEventListener("click", ()=>{
+    resultsContainer.textContent = "";
+})
 
-function populateContainer(rows, columns) {
+const CButton = document.getElementById("C");
+
+CButton.addEventListener("click", ()=>{
+    resultsContainer.textContent = resultsContainer.textContent.slice(0, -1);
+})
+
+function populateInputContainer(rows, columns) {
     for (let i =0; i < rows; i++) {
         const rowDiv = document.createElement("div");
         rowDiv.className = "row";
@@ -61,29 +71,22 @@ function populateContainer(rows, columns) {
             columnButton.className = "inputButton";
             columnButton.textContent = columnArray[i][j];
             columnButton.addEventListener("click", ()=>{
-
-                displayContainer.textContent += columnArray[i][j];
+                // if (signArray.includes(columnArray[i][j])){
+                //     if(columnArray[i][j] === displayText.slice(-1)){
+                //         resultsText.splice(-1,1, columnArray[i][j]);
+                //     }
+                // }
+                resultsContainer.textContent += columnArray[i][j];
             })
             rowDiv.appendChild(columnButton);
         }
     }
+
 }
 
-populateContainer(4,4);
+populateInputContainer(4,4);
 
 
-
-const ACButton = document.getElementById("AC");
-
-ACButton.addEventListener("click", ()=>{
-    displayContainer.textContent = "";
-})
-
-const CButton = document.getElementById("C");
-
-CButton.addEventListener("click", ()=>{
-    displayContainer.textContent.replace(/.$/,  "");
-})
 
 
 
