@@ -79,7 +79,7 @@ function operations() {
     console.log("Operations")
     let firstNumber;
     let secondNumber;
-    for (let i = 0; i < resultsContainer.textContent.length; i++) {
+    for (let i = 1; i < resultsContainer.textContent.length; i++) {
         if (signArray.includes(resultsContainer.textContent[i])) {
             let sign = resultsContainer.textContent[i];
             let signPosition = i;
